@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 
 export function Container({
@@ -51,8 +52,13 @@ export function Button({
     "outline-dark":
       "border border-mist text-ink hover:border-navy hover:bg-navy hover:text-white",
   }[variant];
-  return (
-    <a href={href} className={`${base} ${styles}`}>
+  const className = `${base} ${styles}`;
+  return href.startsWith("/") ? (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  ) : (
+    <a href={href} className={className}>
       {children}
     </a>
   );

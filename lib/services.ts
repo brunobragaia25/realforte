@@ -40,3 +40,19 @@ export const services: [string, string][] = [
     "Capacitação de líderes e equipes com conteúdo prático de gestão.",
   ],
 ];
+
+/** Mesmos slugs do site atual, na mesma ordem de `services`. */
+export const serviceSlugs = [
+  "diagnostico-empresarial",
+  "planejamento-estrategico",
+  "avaliacao-de-empresas-valuation",
+  "planejamento-comercial",
+  "formatacao-de-franquias",
+  "governanca-corporativa",
+  "consultoria-financeira-e-orcamentaria",
+  "plano-de-negocios-business-plan",
+  "recursos-humanos",
+  "cursos-e-palestras",
+] as const;
+
+export const servicePath = (i: number) => `/servicos/${serviceSlugs[i]}`;

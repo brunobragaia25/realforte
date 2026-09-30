@@ -4,21 +4,18 @@ import {
   InstagramLogo,
   LinkedinLogo,
 } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
 import { Reveal } from "./motion";
+import { CURRICULO_URL } from "@/lib/nav";
+import { servicePath, services } from "@/lib/services";
 import { Container, Eyebrow } from "./ui";
 
-const nav = ["Início", "Empresa", "Serviços", "Equipe", "Currículo"];
-const services = [
-  "Diagnóstico Empresarial",
-  "Planejamento Estratégico",
-  "Avaliação de Empresas (Valuation)",
-  "Planejamento Comercial",
-  "Formatação de Franquias",
-  "Governança Corporativa em Empresas Familiares",
-  "Consultoria Financeira e Orçamentária",
-  "Plano de Negócios (Business Plan)",
-  "Recursos Humanos",
-  "Cursos e Palestras",
+const nav = [
+  ["Início", "/"],
+  ["Empresa", "/empresa"],
+  ["Serviços", "/servicos"],
+  ["Equipe", "/#equipe"],
+  ["Currículo", CURRICULO_URL],
 ];
 const socials = [
   { name: "Instagram", Icon: InstagramLogo },
@@ -41,12 +38,12 @@ export function Footer() {
             </p>
           </div>
           <div className="flex items-start gap-3 text-[14px]">
-            <a
-              href="#contato"
+            <Link
+              href="/#contato"
               className="rounded-full bg-coral px-[26px] py-4 font-medium transition-colors duration-200 hover:bg-white hover:text-navy"
             >
               Fale com um consultor ↗
-            </a>
+            </Link>
             <a
               href="#"
               className="rounded-full border border-white/40 px-[26px] py-4 transition-colors duration-200 hover:border-white hover:bg-white hover:text-navy"
@@ -87,9 +84,9 @@ export function Footer() {
           <div>
             <Eyebrow className="text-coral">(NAVEGAÇÃO)</Eyebrow>
             <ul className="flex flex-col gap-3 pt-5">
-              {nav.map((n) => (
+              {nav.map(([n, href]) => (
                 <li key={n}>
-                  <a href="#" className={link}>
+                  <a href={href} className={link}>
                     {n}
                   </a>
                 </li>
@@ -100,14 +97,14 @@ export function Footer() {
           <div>
             <Eyebrow className="text-coral">(SERVIÇOS)</Eyebrow>
             <ul className="flex flex-col gap-3 pt-5">
-              {services.map((s) => (
+              {services.map(([s], idx) => (
                 <li
                   key={s}
                   className={s.startsWith("Governança") ? "max-w-[230px]" : ""}
                 >
-                  <a href="#servicos" className={link}>
+                  <Link href={servicePath(idx)} className={link}>
                     {s}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -140,12 +137,12 @@ export function Footer() {
                   CEP 29.045-300
                 </p>
               </div>
-              <a
-                href="#contato"
+              <Link
+                href="/#contato"
                 className="text-[14px] text-coral transition-colors hover:text-white"
               >
                 Ver no mapa ↗
-              </a>
+              </Link>
             </div>
           </div>
         </Reveal>
@@ -172,7 +169,7 @@ export function Footer() {
           <a href="#" className="transition-colors hover:text-white">
             Cookies
           </a>
-          <a href="#inicio" className="transition-colors hover:text-white">
+          <a href="#" className="transition-colors hover:text-white">
             Voltar ao topo ↑
           </a>
         </div>

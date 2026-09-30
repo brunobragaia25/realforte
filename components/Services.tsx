@@ -1,31 +1,8 @@
-import {
-  ChalkboardTeacher,
-  ChartLineUp,
-  ClipboardText,
-  Coins,
-  Scales,
-  Stethoscope,
-  Storefront,
-  Target,
-  TreeStructure,
-  UsersThree,
-} from "@phosphor-icons/react/dist/ssr";
-import { services } from "@/lib/services";
+import Link from "next/link";
+import { services, servicePath } from "@/lib/services";
 import { Reveal, Stagger, StaggerItem } from "./motion";
+import { serviceIcons as icons } from "./serviceIcons";
 import { Container, Eyebrow } from "./ui";
-
-const icons = [
-  Stethoscope,
-  Target,
-  ChartLineUp,
-  Storefront,
-  TreeStructure,
-  Scales,
-  Coins,
-  ClipboardText,
-  UsersThree,
-  ChalkboardTeacher,
-];
 
 export function Services() {
   return (
@@ -38,12 +15,12 @@ export function Services() {
               Serviços
             </h2>
           </div>
-          <a
-            href="#"
+          <Link
+            href="/servicos"
             className="rounded-full border border-mist px-6 py-[14px] text-[14px] transition-colors duration-200 hover:border-navy hover:bg-navy hover:text-white"
           >
             Ver todos os serviços ↗
-          </a>
+          </Link>
         </Reveal>
 
         <Stagger
@@ -56,8 +33,13 @@ export function Services() {
               <StaggerItem
                 as="article"
                 key={title}
-                className="group flex min-h-[300px] flex-col justify-between border-r border-b border-line bg-white p-6 transition-colors duration-200 hover:bg-blush"
+                className="group relative flex min-h-[300px] flex-col justify-between border-r border-b border-line bg-white p-6 transition-colors duration-200 hover:bg-blush"
               >
+                <Link
+                  href={servicePath(i)}
+                  aria-label={title}
+                  className="absolute inset-0 z-10"
+                />
                 <div className="flex items-start justify-between">
                   <div className="grid size-12 place-items-center border border-line">
                     <Icon

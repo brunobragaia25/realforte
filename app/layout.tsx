@@ -24,12 +24,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="pt-BR" className={`${figtree.variable} ${jetbrains.variable}`}>
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300&icon_names=hub&display=block"
-        />
-      </head>
       <body className="antialiased">
         <MotionProvider>{children}</MotionProvider>
       </body>

@@ -33,7 +33,9 @@ export function About() {
               ligado ao desenvolvimento e satisfação das pessoas.
             </p>
             <div className="flex gap-3 pt-8">
-              <Button variant="navy">Conheça a empresa</Button>
+              <Button variant="navy" href="/empresa">
+                Conheça a empresa
+              </Button>
               <Button variant="outline-dark" href="#equipe">
                 Nossa equipe
               </Button>

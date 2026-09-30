@@ -1,17 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
 import { HeroCard } from "./HeroCard";
+import { SiteHeader } from "./SiteHeader";
 import { Backdrop, Reveal, SplitWords } from "./motion";
 import { Button, Container } from "./ui";
-
-const nav = [
-  ["Início", "#inicio"],
-  ["Empresa", "#empresa"],
-  ["Serviços", "#servicos"],
-  ["Equipe", "#equipe"],
-  ["Clientes", "#clientes"],
-  ["Depoimentos", "#depoimentos"],
-  ["Contato", "#contato"],
-];
 
 export function Hero() {
   return (
@@ -25,42 +15,7 @@ export function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-navy from-[35.79%] via-navy/55 via-[52.312%] to-navy/20 to-[65.831%]" />
 
-      <header className="relative border-b border-white/15">
-        <Reveal onMount y={-24} delay={0.1}>
-          <Container className="flex items-center justify-between py-7">
-            <img
-              src="/icons/Image2Vectorized.svg"
-              alt="Real Forte Consultoria"
-              className="h-[54px] w-[200px]"
-            />
-            <nav className="flex gap-7 px-6 text-[14px]">
-              {nav.map(([label, href], i) => (
-                <a
-                  key={label}
-                  href={href}
-                  className={`transition-colors hover:text-coral ${i === 0 ? "text-white" : "text-white/85"}`}
-                >
-                  {label}
-                </a>
-              ))}
-            </nav>
-            <div className="flex items-center gap-3 text-[14px]">
-              <a
-                href="#"
-                className="rounded-full bg-white px-5 py-3 text-ink transition-colors duration-200 hover:bg-coral hover:text-white"
-              >
-                Currículo
-              </a>
-              <a
-                href="#contato"
-                className="rounded-full bg-coral px-[22px] py-3 font-medium transition-colors duration-200 hover:bg-white hover:text-ink"
-              >
-                Agendar conversa
-              </a>
-            </div>
-          </Container>
-        </Reveal>
-      </header>
+      <SiteHeader active="Início" />
 
       <Container className="relative pt-[99px]">
         <Reveal
